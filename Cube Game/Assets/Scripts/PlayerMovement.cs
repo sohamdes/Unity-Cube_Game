@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if(transform.position.y < -2 ){
             Die();
-        }
+       }
 
     }
 
@@ -49,6 +49,15 @@ public class PlayerMovement : MonoBehaviour {
         if(collision.gameObject.CompareTag("Goal"))
         {
             GameManager.CompleteLevel();
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Coin")){
+
+            other.gameObject.SetActive(false);
         }
     }
 
